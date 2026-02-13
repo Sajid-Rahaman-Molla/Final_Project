@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .search-categories-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+      /* no wrap so scroll hobe */
+      overflow-x: auto;
+      /* horizontal scroll */
+      overflow-y: hidden;
+      /* vertically scroll na hoy */
+      gap: 15px;
+      /* spacing between items */
+      scroll-behavior: smooth;
+      /* smooth scrolling */
+      padding: 10px;
+    }
+
+    /* scrollbar hide (optional for cleaner look) */
+    .search-categories-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* keep items inline */
+    .search-category-item {
+      flex: 0 0 auto;
+      /* prevent item shrinking */
+      background: #e8ebef;
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .search-category-item:hover {
+      background: #d4d9e0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-icon {
+      font-size: 18px;
+      color: #555;
+      margin-right: 10px;
+    }
+
+    .search-label {
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
