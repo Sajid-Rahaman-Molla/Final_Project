@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        input {
+            display: block;
+            width: 300px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 300px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #1E77E8;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm" onsubmit="return validateForm()">
+
+        <input type="text" id="fname" placeholder="* First name">
+        <span id="fnameError" class="error"></span>
+
+        <input type="text" id="lname" placeholder="* Last name">
+        <span id="lnameError" class="error"></span>
+
+        <input type="text" id="phone" placeholder="* Phone number">
+        <span id="phoneError" class="error"></span>
+
+        <input type="text" id="email" placeholder="* Email ID">
+        <span id="emailError" class="error"></span>
+
+        <button type="submit">Check My Benefits</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            let fname = document.getElementById("fname").value.trim();
+            let lname = document.getElementById("lname").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            let isValid = true;
+
+            // Clear previous errors
+            document.getElementById("fnameError").innerText = "";
+            document.getElementById("lnameError").innerText = "";
+            document.getElementById("phoneError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+
+            // First Name validation
+            if (fname === "") {
+                document.getElementById("fnameError").innerText = "Please enter your first name";
+                isValid = false;
+            }
+
+            // Last Name validation
+            if (lname === "") {
+                document.getElementById("lnameError").innerText = "Please enter your last name";
+                isValid = false;
+            }
+
+            // Phone number validation
+            let phonePattern = /^[0-9]{10}$/;
+            if (!phone.match(phonePattern)) {
+                document.getElementById("phoneError").innerText = "Enter 10 digit phone number";
+                isValid = false;
+            }
+
+            // Email validation
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerText = "Enter valid email address";
+                isValid = false;
+            }
+
+            return isValid; // Valid hole form submit hobe
+        }
+    </script>
+
+</body>
+
+</html>
